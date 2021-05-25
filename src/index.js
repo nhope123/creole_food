@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import {Provider} from 'react-redux';
 import reportWebVitals from './reportWebVitals';
+
+import RecipeBook from './components/app';
+import store from './redux/store';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+/*var sass = require('sass');
+var result = sass.render({
+  file: './styles/nav.scss'
+});
+*/
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RecipeBook />
   </React.StrictMode>,
   document.getElementById('root')
 );

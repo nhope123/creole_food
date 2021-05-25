@@ -1,0 +1,8 @@
+@import './mixin.scss'
+
+nav{
+
+  .logo{
+    @include dimension(10%,10%);
+  }
+}
