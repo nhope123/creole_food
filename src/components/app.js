@@ -16,6 +16,9 @@ class RecipeBook extends Component {
     return (
       <div>
         <Navbar />
+        <div className={'container-xl border border-primary'}>
+          good stuff
+        </div>
       </div>
     )
   }

@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 
 import logo from './../assets/logo128.png'
 import addRecipe from './../assets/file-add.png'
-import './../styles/nav.scss';
+import './../styles/nav.css';
+
 
 export default class Navbar extends Component {
   static propTypes = {
@@ -13,17 +14,19 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <nav className={'navbar navbar-dark d-flex flex-row justify-content-between align-items-center px-5 py-3' }>
-        <div >
+      <div className={'bg-success px-sm-5 py-sm-3 px-3 py-auto '} >
+        <nav className={'container-xl navbar navbar-dark d-flex flex-row justify-content-between align-items-end px-0 py-0 ' }>
+          <div className={'d-flex flex-row align-items-end'} >
 
-            <img src={logo} alt={'Website logo'} className={'d-inline-block logo'}/>
+              <img src={logo} alt={'Website logo'} className={'d-inline-block logo'} />
 
-          <span>{'Creole Food'}</span>
-        </div>
-        <div>
-          <img src={addRecipe} alt={'Website logo'} />
-        </div>
-      </nav>
+            <span className={'text-white fs-3 fs-sm-2 fw-bold px-3' }>{'Creole Food'}</span>
+          </div>
+          <div className={' btn rounded-circle bg-white px-1 py-1'}>
+            <img src={addRecipe} alt={'Website logo'} title={'Add Recipe'} className={'icon'}/>
+          </div>
+        </nav>
+      </div>
     )
   }
 }

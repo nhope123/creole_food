@@ -1,0 +1,19 @@
+
+.navbar{
+  /*background-color: var(--bs-green);*/
+
+}
+.logo{
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+.icon{
+  width: 25px;
+  height: 25px;
+}
+
+span{
+  /*border: 2px solid red;*/
+}
