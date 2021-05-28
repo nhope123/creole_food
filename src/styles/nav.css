@@ -13,15 +13,31 @@
   width: 25px;
   height: 25px;
 }
+
 .detail-icon{
   width: 18px;
   height: 18px;
 }
+
 .main-container{
   min-height: calc(100vh - 45px);
 }
+
 #sm-title{
   background-color: #f05c2c;
+}
+
+/* Details */
+#ingredients, #direction{
+  min-height: 40vh;
+  flex-direction: row-reverse ;
+}
+
+#meal{
+  width: 50%;
+  height:auto;
+  margin: auto;
+
 }
 /*#menu{
   min-height: calc(100vh - 45px);

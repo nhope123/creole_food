@@ -22,7 +22,7 @@ class RecipeBook extends Component {
             <div id={'menu'} className={'d-block col-12 col-sm-3 border border-secondary p-0'} >
               <Menu />
             </div>
-            <div id={'details'} className={'col-12 col-sm-9 border border-secondary h-100'} >
+            <div id={'details'} className={' col-12 col-sm-9 border border-secondary '} >
               <Details />
             </div >
 

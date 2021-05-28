@@ -10,7 +10,7 @@ class SideMenu extends Component{
         <h5 id={'sm-title'} className={'d-block w-100 text-white text-center py-2 dropdown-toggle'} data-bs-toggle="dropdown" aria-expanded="false" >{'Recipe'}</h5>
         <ul className={'dropdown-menu'} aria-labelledby={'sm-title'}>
           {name.map((item,index)=>{
-            return(<li ><a className={'dropdown-item'} href='#' key={index}>{item}</a></li>)
+            return(<li className={'dropdown-item'} key={index}>{item}</li>)
           })}
         </ul>
       </div>
