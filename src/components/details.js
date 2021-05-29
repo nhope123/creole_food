@@ -39,10 +39,10 @@ export default class Details extends Component {
                 <dl >
                   {direct.map((item, index)=>{
                     return(
-                      <Fragment >
-                        <dt className={'px-1'} key={`${index + 't'}`} >{`Step ${index + 1} `} </dt >
-                        <dd className={'px-1'} key={`${index + 'd'}`} > {item } </dd>
-                      </Fragment >
+                      <div  key={`${index }`}>
+                        <dt className={'px-1'}  >{`Step ${index + 1} `} </dt >
+                        <dd className={'px-1'}  > {item } </dd>
+                      </div  >
                     );
                   })
                 }

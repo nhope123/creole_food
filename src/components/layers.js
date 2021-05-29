@@ -1,5 +1,5 @@
 import React from 'react'
-import edit from './../assets/editdocument.png'
+import edit from './../assets/editdocument1.png'
 import deletePic from './../assets/trash_bin2.png'
 
 const URL ='http://watchfit.com/wp-content/uploads/2015/05/junk-food-and-its-effects_11.jpg';
@@ -22,10 +22,10 @@ export const Header = props => {
       {/* Eidt buttons */}
       <div className={'col-3 col-sm-2 d-flex flex-row'} >
         <button type={'button'} className={'btn rounded-circle p-2 '} >
-          <img className={'detail-icon'} src={edit} alt={'Edit button'} />
+          <img className={'detail-icon'} src={edit} alt={'Edit button'} title={'Edit Recipe'}/>
         </button >
         <button type={'button'} className={'btn rounded-circle p-2'} >
-          <img className={'detail-icon'} src={deletePic} alt={'Delete button'} />
+          <img className={'detail-icon'} src={deletePic} alt={'Delete button'} title={'Delete Recipe'}/>
         </button >
       </div >
     </div >

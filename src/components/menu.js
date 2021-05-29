@@ -2,16 +2,22 @@ import React, { Component,Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+let name = ['Roasted Beef','Bake and Shark','Iced cool Teas','Roasted Beef','Bake and Shark','Iced cool Teas'];
+
 class SideMenu extends Component{
   render(){
-    let name = ['Roasted Beef','Bake and Shark','Iced cool Teas','Roasted Beef','Bake and Shark','Iced cool Teas'];
+
     return(
-      <div className={'d-block d-sm-none dropdown '}>
-        <h5 id={'sm-title'} className={'d-block w-100 text-white text-center py-2 dropdown-toggle'} data-bs-toggle="dropdown" aria-expanded="false" >{'Recipe'}</h5>
-        <ul className={'dropdown-menu'} aria-labelledby={'sm-title'}>
-          {name.map((item,index)=>{
-            return(<li className={'dropdown-item'} key={index}>{item}</li>)
-          })}
+      <div className={`${this.props.main} position-relative`}>
+        <h5 id={'sm-title'} className={`d-block w-100 h-100 text-white text-center py-2 ${this.props.titleclass}`} data-bs-toggle="dropdown" aria-expanded="false" >{'Recipe'}</h5>
+        <ul className={this.props.listclass} aria-labelledby={'sm-title'}>
+          {
+            name.map((item,index)=>{
+              return(
+                <li className={this.props.itemclass} key={index}>{item}</li>
+              )
+            })
+          }
         </ul>
       </div>
     )
@@ -36,15 +42,26 @@ export default class Menu extends Component {
 
   render() {
     const sidebar = {
-                      itemclass: 'list-group-item',
-                      listclass: 'list-group list-group-flush',
                       main: 'd-none d-sm-block',
+                      titleclass: '',
+                      listclass: 'list-group list-group-flush',
+                      itemclass: 'list-group-item',
+
+
                       id: 'sm-title'
     }
+    const dropbar = {
+                      main: 'd-block d-sm-none dropdown ',
+                      titleclass: 'dropdown-toggle',
+                      listclass: 'drop-menu position-absolute',
+                      itemclass: 'drop-item',
+
+    }
+
     return (
       <Fragment >
-        <SideMenu />
-        {/*<SideMenu />*/}
+        <SideMenu {...sidebar} />
+        <SideMenu {...dropbar} />
       </Fragment >
     )
   }

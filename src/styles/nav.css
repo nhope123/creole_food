@@ -15,17 +15,21 @@
 }
 
 .detail-icon{
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
+  /*background-color: rgba(255,255,255,0);*/
+}
+.detail-icon:hover, .create:hover{
+  transform: scale(1.25);
+  /*box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);*/
+
 }
 
 .main-container{
   min-height: calc(100vh - 45px);
 }
 
-#sm-title{
-  background-color: #f05c2c;
-}
+
 
 /* Details */
 #ingredients, #direction{
@@ -34,7 +38,7 @@
 }
 
 #meal{
-  width: 50%;
+  width: 60%;
   height:auto;
   margin: auto;
 
@@ -43,6 +47,44 @@
   min-height: calc(100vh - 45px);
 }*/
 
+#sm-title{
+  background-color: #f05c2c;
+  margin: 0;
+}
+.dropdown,.drop-menu li, .list-group-item {cursor: pointer;}
+/* Dropdwon menu */
+.dropdown{
+  height: 100%;
+
+}
+.drop-menu{
+  position: absolute;
+  display: none;
+  top: 40px;
+  width: 100%;
+  background-color: #fdede7;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+  padding: 0;
+
+
+  border: 2px solid red;
+}
+.dropdown:hover .drop-menu{
+  display: block;
+}
+.drop-menu li{
+  list-style: none;
+  padding: 5px 20%;
+}
+.drop-menu li:hover, .list-group-item:hover{
+  background-color: #fac8b7;
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.3);
+  z-index: 3;
+}
+
+
+
 @media screen and (min-width: 576px) {
   .main-container{
     min-height: calc(100vh - 77px);
@@ -50,9 +92,12 @@
   #menu,#details{
     min-height: calc(100vh - 80px);
   }
+
+}
+
+@media screen and (min-width: 992px) {
   #meal{
     width: 100%;
     padding: 5px;
-  
   }
 }
