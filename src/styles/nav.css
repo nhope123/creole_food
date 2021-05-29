@@ -50,5 +50,9 @@
   #menu,#details{
     min-height: calc(100vh - 80px);
   }
-
+  #meal{
+    width: 100%;
+    padding: 5px;
+  
+  }
 }
