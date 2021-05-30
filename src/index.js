@@ -15,7 +15,9 @@ var result = sass.render({
 
 ReactDOM.render(
   <React.StrictMode>
-    <RecipeBook />
+    <Provider store={store} >
+      <RecipeBook />
+    </Provider >
   </React.StrictMode>,
   document.getElementById('root')
 );
