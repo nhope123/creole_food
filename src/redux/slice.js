@@ -1,31 +1,14 @@
 import {createSlice, current} from '@reduxjs/toolkit';
 import {recipes} from './recipes';
+import {getRecipeTitles, getLocal, uniqueRecipes} from './sliceHelpers';
 
-
-const getRecipeTitles = array =>{
-  return array.map(item =>{
-    return item.name
-  });
-}
-// Retrieve local Storage
-const getLocal = ()=>{
-  if(localStorage.recipe){
-    return JSON.parse(localStorage.getItem('recipe'))
-  }else{
-    localStorage.setItem('recipe',JSON.stringify(recipes));
-    return ''
-  }
-}
-
-
-const recipeData = (getLocal())? [...recipes,  ...getLocal()]:[...recipes];
+const recipeData = (getLocal())? uniqueRecipes( getLocal(), recipes): recipes;
 
 const initialState = {
   recipe: recipeData,
   recipe_list: getRecipeTitles(recipeData),
   detail: recipeData[0],
   deleteModal: false,
-
 };
 
 
@@ -52,6 +35,12 @@ const recipeSlice = createSlice({
       state.deleteModal = false
     },
     confirmDelete: (state)=>{
+      // check local storage for item remove it
+
+
+      //check state for item and remove it
+
+
       // BUG: deleting items
       if(getLocal()){
         console.log(getLocal())
