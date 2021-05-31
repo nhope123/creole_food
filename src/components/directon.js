@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 class Direction extends Component {
   static propTypes = {
@@ -41,10 +40,4 @@ const mapStateToProps = (state) => ({
   notes: state.recipe.detail.notess
 })
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    //displayRecipe,
-  }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Direction)
+export default connect(mapStateToProps)(Direction)

@@ -31,6 +31,7 @@ class SideMenu extends Component{
 class Menu extends Component {
   static propTypes = {
     recipeList: PropTypes.array,
+    displayRecipe: PropTypes.func,
   }
   render() {
     const sidebar = {
