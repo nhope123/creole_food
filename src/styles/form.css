@@ -1,0 +1,37 @@
+
+#edit-modal-bg{
+  background: url("./../assets/food-bg.jpg") no-repeat left bottom fixed ;
+  background-size: cover;
+}
+
+#form-container{
+  width: 100vw;
+  max-width: 450px;
+
+}
+
+#form-header, #form-container{
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+}
+
+textarea{
+  width: 100%;
+  min-height: 110px;
+  border: 2px solid #0bb8da;
+}
+
+label{
+  font-weight: 500;
+}
+
+input{
+  border-bottom: 2px solid #0bb8da;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+input: {
+  background-color: white;
+}

@@ -32,7 +32,7 @@
 
 
 /* Details */
-#ingredients, #direction{
+#ingredient, #direction{
   min-height: 40vh;
   flex-direction: row-reverse ;
 }

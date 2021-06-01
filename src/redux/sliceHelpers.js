@@ -72,6 +72,7 @@ export const uniqueRecipes = (firstList, secondList) =>{
        unique.push(item);
        nameList.push(item.name);
      }
+     return ''
    })
    return unique;
 }

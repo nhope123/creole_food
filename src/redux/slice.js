@@ -15,7 +15,6 @@ const initialState = {
   recipe_list: getRecipeTitles(recipeData),
   detail: recipeData[0],
   deleteModal: false,
-  createModal: false,
 };
 
 
@@ -51,20 +50,11 @@ const recipeSlice = createSlice({
       state.deleteModal = false
 
     },
-    openCreateModal: (state)=>{
-      state.createModal = true
-    },
-    closeCreateModal: (state)=>{
-      state.createModal = false
-    },
-
-
   },
 })
 
 export const {
-              displayRecipe, closeCreateModal, openCreateModal,
-              confirmDelete, openDeleteModal, closeDeleteModal,
+              displayRecipe, confirmDelete, openDeleteModal, closeDeleteModal,
 
             } = recipeSlice.actions;
 export default recipeSlice.reducer;

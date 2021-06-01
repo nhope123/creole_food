@@ -5,13 +5,10 @@ import reportWebVitals from './reportWebVitals';
 
 import RecipeBook from './components/app';
 import store from './redux/store';
+import './styles/nav.css';
+import './styles/form.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-/*var sass = require('sass');
-var result = sass.render({
-  file: './styles/nav.scss'
-});
-*/
 
 ReactDOM.render(
   <React.StrictMode>

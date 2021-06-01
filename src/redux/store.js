@@ -1,9 +1,11 @@
 import {createStore, combineReducers} from  'redux';
 import recipeReducer from './slice';
+import formReducer from './formSlice'
 
 const store = createStore(
   combineReducers({
-    recipe:recipeReducer
+    recipe:recipeReducer,
+    form: formReducer,
   }),
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )

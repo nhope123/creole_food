@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-import {openCreateModal} from '../redux/slice'
-import logo from './../assets/logo128.png'
+import EditRecipe from './edit'
+import {openCreateRecipe} from '../redux/formSlice'
+import logo from './../assets/logo128.webp'
 import addRecipe from './../assets/file-add.png'
-import './../styles/nav.css'
+
 
 
 
 class Navbar extends Component {
   static propTypes = {
-    openCreateModal: PropTypes.func,
+    openCreateRecipe: PropTypes.func,
   }
 
   render() {
@@ -24,9 +26,10 @@ class Navbar extends Component {
 
             <span className={'text-white fs-3 fs-sm-2 fw-bold px-3' }>{'Creole Food'}</span>
           </div>
-          <div className={' btn create rounded-circle bg-white px-1 py-1'} tabIndex={'0'} onClick={this.props.openCreateModal}>
+          <div className={' btn create rounded-circle bg-white px-1 py-1'} tabIndex={'0'} onClick={this.props.openCreateRecipe}>
             <img src={addRecipe} alt={'Add recipe icon'} title={'Add Recipe'} className={'icon'}/>
           </div>
+
         </nav>
       </div>
     )
@@ -39,7 +42,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    openCreateModal,
+    openCreateRecipe,
   }, dispatch);
 }
 

@@ -11,7 +11,7 @@ class Ingredient extends Component {
 
   render() {
     return(
-      <div id={'ingredients'} className={'d-flex flex-sm-row-reverse row py-3'}>
+      <div id={'ingredient'} className={'d-flex flex-sm-row-reverse row py-3'}>
 
         {/* Image */}
         <div className={'d-flex flex-row align-items-center col-12 col-lg-5 border border-primary'} >
