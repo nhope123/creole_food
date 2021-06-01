@@ -2,14 +2,16 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import {openCreateModal} from '../redux/slice'
 import logo from './../assets/logo128.png'
 import addRecipe from './../assets/file-add.png'
-import './../styles/nav.css';
+import './../styles/nav.css'
 
 
-export default class Navbar extends Component {
+
+class Navbar extends Component {
   static propTypes = {
-
+    openCreateModal: PropTypes.func,
   }
 
   render() {
@@ -22,7 +24,7 @@ export default class Navbar extends Component {
 
             <span className={'text-white fs-3 fs-sm-2 fw-bold px-3' }>{'Creole Food'}</span>
           </div>
-          <div className={' btn create rounded-circle bg-white px-1 py-1'}>
+          <div className={' btn create rounded-circle bg-white px-1 py-1'} tabIndex={'0'} onClick={this.props.openCreateModal}>
             <img src={addRecipe} alt={'Add recipe icon'} title={'Add Recipe'} className={'icon'}/>
           </div>
         </nav>
@@ -35,8 +37,10 @@ const mapStateToProps = (state) => ({
 
 })
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    openCreateModal,
+  }, dispatch);
+}
 
-})
-
-//export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
+export default connect(null, mapDispatchToProps)(Navbar)

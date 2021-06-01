@@ -7,12 +7,12 @@ import edit from './../assets/editdocument1.png'
 import deletePic from './../assets/trash_bin2.png'
 import DeleteRecipe from './delete'
 
-import {openDeleteModel} from '../redux/slice'
+import {openDeleteModal} from '../redux/slice'
 
 class Header extends Component {
   static propTypes = {
     title: PropTypes.string,
-    openDeleteModel: PropTypes.func,
+    openDeleteModal: PropTypes.func,
   }
 
   render() {
@@ -27,7 +27,7 @@ class Header extends Component {
           <button type={'button'} className={'btn rounded-circle p-2 '} >
             <img className={'detail-icon'} src={edit} alt={'Edit button'} title={'Edit Recipe'}/>
           </button >
-          <button type={'button'} className={'btn rounded-circle p-2'} onClick={this.props.openDeleteModel} >
+          <button type={'button'} className={'btn rounded-circle p-2'} onClick={this.props.openDeleteModal} >
             <img className={'detail-icon'} src={deletePic} alt={'Delete button'} title={'Delete Recipe'}/>
           </button >
           {/* Modal */}
@@ -45,7 +45,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    openDeleteModel,
+    openDeleteModal,
   }, dispatch);
 }
 

@@ -1,6 +1,12 @@
 import {createSlice, current} from '@reduxjs/toolkit';
 import {recipes} from './recipes';
-import {getRecipeTitles, getLocal, uniqueRecipes} from './sliceHelpers';
+import {
+        getRecipeTitles,
+        getLocal,
+        uniqueRecipes,
+        deleteFromLocal,
+        deleteRecipe,
+      } from './sliceHelpers';
 
 const recipeData = (getLocal())? uniqueRecipes( getLocal(), recipes): recipes;
 
@@ -9,6 +15,7 @@ const initialState = {
   recipe_list: getRecipeTitles(recipeData),
   detail: recipeData[0],
   deleteModal: false,
+  createModal: false,
 };
 
 
@@ -28,28 +35,36 @@ const recipeSlice = createSlice({
         return{payload: name}
       }
     },
-    openDeleteModel: (state)=>{
+    openDeleteModal: (state)=>{
       state.deleteModal = true
     },
-    closeDeleteModel: (state)=>{
+    closeDeleteModal: (state)=>{
       state.deleteModal = false
     },
     confirmDelete: (state)=>{
       // check local storage for item remove it
+      deleteFromLocal(state.detail.name)
+      //check state for item and remove it, update state
+      state.recipe = deleteRecipe(state.recipe, state.detail.name)
+      state.detail = state.recipe[0]
+      state.recipe_list = getRecipeTitles(state.recipe)
+      state.deleteModal = false
+
+    },
+    openCreateModal: (state)=>{
+      state.createModal = true
+    },
+    closeCreateModal: (state)=>{
+      state.createModal = false
+    },
 
 
-      //check state for item and remove it
-
-
-      // BUG: deleting items
-      if(getLocal()){
-        console.log(getLocal())
-      }
-      else{console.log('no local');}
-
-    }
   },
 })
 
-export const {displayRecipe, openDeleteModel, closeDeleteModel,confirmDelete} = recipeSlice.actions;
+export const {
+              displayRecipe, closeCreateModal, openCreateModal,
+              confirmDelete, openDeleteModal, closeDeleteModal,
+
+            } = recipeSlice.actions;
 export default recipeSlice.reducer;

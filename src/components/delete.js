@@ -4,14 +4,14 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import ReactModal from 'react-modal'
 
-import {closeDeleteModel, confirmDelete} from '../redux/slice'
+import {closeDeleteModal, confirmDelete} from '../redux/slice'
 
 ReactModal.setAppElement('#root')
 
 class DeleteRecipe extends Component {
   static propTypes = {
     deleteModal: PropTypes.bool,
-    closeDeleteModel: PropTypes.func,
+    closeDeleteModal: PropTypes.func,
     confirmDelete: PropTypes.func,
     title: PropTypes.string,
   }
@@ -21,18 +21,16 @@ class DeleteRecipe extends Component {
 
       <ReactModal
                   isOpen={this.props.deleteModal}
-                  onRequestClose={this.props.closeDeleteModel}
+                  onRequestClose={this.props.closeDeleteModal}
                   contentLabel={`Delete ${this.props.title} Recipe`}
                   id={'delete-Modal'}
                   className={'d-flex flex-column justify-content-center align-items-center min-vw-100 min-vh-100 '}
-
-
       >
         <div id={'dm-content'} className={' container  d-flex flex-column justify-content-between align-items-center p-2 border rounded'}>
           <div className={'text-center'} >{'Are you sure you want to delete this recipe?'}</div>
           <div className={' container-sm d-flex flex-row justify-content-evenly align-items-center'}>
             <button type={'button'} className={'btn btn-primary'}
-                    tabIndex={'0'} onClick={this.props.closeDeleteModel} >
+                    tabIndex={'0'} onClick={this.props.closeDeleteModal} >
                     {'Cancel'}
             </button>
             <button type={'button'} className={'btn btn-danger'}
@@ -40,7 +38,6 @@ class DeleteRecipe extends Component {
                     {'Confirm'}
             </button>
           </div >
-
         </div >
 
       </ReactModal >
@@ -56,7 +53,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    closeDeleteModel,
+    closeDeleteModal,
     confirmDelete,
   }, dispatch);
 }
