@@ -6,6 +6,7 @@ import {
         uniqueRecipes,
         deleteFromLocal,
         deleteRecipe,
+        addRecipe
       } from './sliceHelpers';
 
 const recipeData = (getLocal())? uniqueRecipes( getLocal(), recipes): recipes;
@@ -27,11 +28,11 @@ const recipeSlice = createSlice({
       /* Display the recipe selected */
       reducer: (state, action)=>{
         state.detail = state.recipe.find((item)=>{
-          return (item.name === action.payload)
+          return (item.title === action.payload)
         })
       },
-      prepare:(name)=>{
-        return{payload: name}
+      prepare:(title)=>{
+        return{payload: title}
       }
     },
     openDeleteModal: (state)=>{
@@ -42,19 +43,30 @@ const recipeSlice = createSlice({
     },
     confirmDelete: (state)=>{
       // check local storage for item remove it
-      deleteFromLocal(state.detail.name)
+      deleteFromLocal(state.detail.title)
       //check state for item and remove it, update state
-      state.recipe = deleteRecipe(state.recipe, state.detail.name)
+      state.recipe = deleteRecipe(state.recipe, state.detail.title)
       state.detail = state.recipe[0]
       state.recipe_list = getRecipeTitles(state.recipe)
       state.deleteModal = false
-
     },
+    updateRecipe:{
+      reducer: (state, action) =>{
+        addRecipe(action.payload)
+        state.recipe = uniqueRecipes( getLocal(), recipes)
+        state.recipe_list =  getRecipeTitles(recipeData)
+        state.detail = recipeData[0]
+      },
+      prepare: (value) =>{
+        return {payload: value}
+      }
+    }
+
   },
 })
 
 export const {
               displayRecipe, confirmDelete, openDeleteModal, closeDeleteModal,
-
+              updateRecipe,
             } = recipeSlice.actions;
 export default recipeSlice.reducer;

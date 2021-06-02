@@ -35,9 +35,15 @@ class Direction extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  data: state.recipe.detail.directions,
-  notes: state.recipe.detail.notess
-})
+const mapStateToProps = (state) => {
+  return (state.preview.activePreview)?({
+    data: state.preview.data.directions,
+    notes: state.preview.data.notes,
+  }):
+  ({
+    data: state.recipe.detail.directions,
+    notes: state.recipe.detail.notes,
+  })
+}
 
 export default connect(mapStateToProps)(Direction)

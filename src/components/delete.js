@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import ReactModal from 'react-modal'
+import OptionButtons from './options'
 
 import {closeDeleteModal, confirmDelete} from '../redux/slice'
 
@@ -17,8 +18,15 @@ class DeleteRecipe extends Component {
   }
 
   render() {
-    return (
+    const buttons = {
+      leftButtonTitle: 'Cancel',
+      rightButtonTitle: 'Confirm',
+      leftCallback: this.props.closeDeleteModal,
+      rightCallback: this.props.confirmDelete,
 
+    }
+
+    return (
       <ReactModal
                   isOpen={this.props.deleteModal}
                   onRequestClose={this.props.closeDeleteModal}
@@ -28,18 +36,9 @@ class DeleteRecipe extends Component {
       >
         <div id={'dm-content'} className={' container  d-flex flex-column justify-content-between align-items-center p-2 border rounded'}>
           <div className={'text-center'} >{'Are you sure you want to delete this recipe?'}</div>
-          <div className={' container-sm d-flex flex-row justify-content-evenly align-items-center'}>
-            <button type={'button'} className={'btn btn-primary'}
-                    tabIndex={'0'} onClick={this.props.closeDeleteModal} >
-                    {'Cancel'}
-            </button>
-            <button type={'button'} className={'btn btn-danger'}
-                    tabIndex={'0'} onClick={this.props.confirmDelete}>
-                    {'Confirm'}
-            </button>
-          </div >
+          {/* Choice to cancel or delete the recipe */}
+          <OptionButtons {...buttons}/>
         </div >
-
       </ReactModal >
 
     )

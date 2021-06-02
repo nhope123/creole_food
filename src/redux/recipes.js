@@ -7,7 +7,7 @@ import shepard_pie from './../assets/shepard-pie.webp';
 
 /* Template
   {
-    name: '',
+    title: '',
     ingredients: [],
     directions: [],
     src: '',
@@ -20,7 +20,7 @@ import shepard_pie from './../assets/shepard-pie.webp';
 
 export const recipes = [
   {
-    name: 'PELAU',
+    title: 'PELAU',
     ingredients: [
       '3 lbs. chicken pieces, skinned',
       '1 tsp. salt',
@@ -56,7 +56,7 @@ export const recipes = [
     servingSize: 'Serves 8-10',
   },
   {
-    name: 'CURRIED GOAT',
+    title: 'CURRIED GOAT',
     ingredients: [
       '2 Ibs. lean goat meat',
       '1 tsp. salt',
@@ -83,7 +83,7 @@ export const recipes = [
     servingSize: 'Serves 6',
   },
   {
-    name: 'CURRIED CHICKEN',
+    title: 'CURRIED CHICKEN',
     ingredients: [
       'chicken (3 Tbs.)',
       '1 tsp. minced garlic',
@@ -111,7 +111,7 @@ export const recipes = [
     servingSize: 'Serves 6',
   },
   {
-    name: 'STEWED CHICKEN',
+    title: 'STEWED CHICKEN',
     ingredients: [
       'chicken, cut in serving pieces (3.5 Ibs.)',
       '3 tbsp. minced green seasonings',
@@ -136,7 +136,7 @@ export const recipes = [
     servingSize: 'Serves 8',
   },
   {
-    name: 'OVEN BARBECUED CHICKEN',
+    title: 'OVEN BARBECUED CHICKEN',
     ingredients: [
       '3.5 lbs. chicken, cut in pieces',
       '1 tsp. salt',
@@ -158,7 +158,7 @@ export const recipes = [
     servingSize: 'Serves 8',
   },
   {
-    name: "SHEPHERD'S PIE",
+    title: "SHEPHERD'S PIE",
     ingredients: [
       '2 lbs. potatoes',
       '1/3 cup hot milk',

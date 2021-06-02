@@ -13,7 +13,7 @@ class Details extends Component {
           <Header />
           {/* Ingredients Layer */}
           <Ingredient  />
-          {/* Direction */}
+          {/* Direction Layer */}
           <Direction  />
         </div >
     )

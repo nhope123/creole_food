@@ -1,8 +1,8 @@
-import {createSlice, current} from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
   title: '',
-  serving: '8',
+  servingSize: '8',
   ingredients: '',
   directions: '',
   image: '',
@@ -29,7 +29,7 @@ const formSlice = createSlice({
     },
     closeCreateRecipe: (state)=>{
       state.title = ''
-      state.serving = ''
+      state.servingSize = ''
       state.ingredients = ''
       state.directions = ''
       state.image = ''

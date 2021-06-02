@@ -40,7 +40,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  title: state.recipe.detail.name
+  title: state.recipe.detail.title
 })
 
 const mapDispatchToProps = (dispatch) => {

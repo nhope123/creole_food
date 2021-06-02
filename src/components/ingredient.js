@@ -36,10 +36,17 @@ class Ingredient extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) =>{
+  return (state.preview.activePreview)?({
+    data: state.preview.data.ingredients,
+    servings: state.preview.data.servingSize,
+    src: state.preview.data.src,
+  }) :
+   ({
   data: state.recipe.detail.ingredients,
   servings: state.recipe.detail.servingSize,
   src: state.recipe.detail.src,
-})
+  })
+}
 
 export default connect(mapStateToProps)(Ingredient)

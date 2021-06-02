@@ -42,7 +42,7 @@ const sample = [{
 */
 export const getRecipeTitles = array =>{
   return array.map(item =>{
-    return item.name
+    return item.title
   });
 }
 
@@ -68,9 +68,9 @@ export const uniqueRecipes = (firstList, secondList) =>{
    let unique = [...firstList];
    let nameList = getRecipeTitles(firstList) ;
    secondList.map(item =>{
-     if(!nameList.includes(item.name)){
+     if(!nameList.includes(item.title)){
        unique.push(item);
-       nameList.push(item.name);
+       nameList.push(item.title);
      }
      return ''
    })
@@ -96,5 +96,16 @@ export const deleteFromLocal = (title) =>{
   return: Filtered array of recipes
 */
 export const deleteRecipe = (array,title) =>{
-  return array.filter((item) => {return (item.name !== title)})
+  return array.filter((item) => {return (item.title !== title)})
+}
+
+
+export const addRecipe = (recipe) =>{
+  let localValue;
+  if(getLocal()){
+    localValue = getLocal().unshift(recipe)
+    localStorage.setItem('recipe',localValue)
+  }else{
+    localStorage.setItem('recipe',JSON.stringify([{...recipe}]))
+  }
 }
