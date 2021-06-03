@@ -18,18 +18,18 @@ class RecipeBook extends Component {
       { (this.props.createRecipe)? <EditRecipe /> :(
         <div>
           <Navbar />
-          <div className={'main-container container-xl border border-primary h-sm-25'}>
+          <div className={'main-container container-xl h-sm-25'}>
             <div className={'d-flex flex-row align-items-stretch row h-100 '} >
-              <div id={'menu'} className={'d-block col-12 col-sm-3 border border-secondary p-0'} >
+              <div id={'menu'} className={'d-block col-12 col-sm-3  p-0'} >
                 <Menu />
               </div>
-              <div id={'details'} className={' col-12 col-sm-9 border border-secondary '} >
+              <div id={'details'} className={' col-12 col-sm-9 '} >
                 <Details />
               </div >
 
             </div>
           </div>
-          
+
         </div>
       )}
       </Fragment >

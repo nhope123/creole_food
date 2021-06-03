@@ -14,12 +14,12 @@ class Ingredient extends Component {
       <div id={'ingredient'} className={'d-flex flex-sm-row-reverse row py-3'}>
 
         {/* Image */}
-        <div className={'d-flex flex-row align-items-center col-12 col-lg-5 border border-primary'} >
+        <div className={'d-flex flex-row align-items-center col-12 col-lg-7 border border-primary p-2'} >
           <img id={'meal'} src={this.props.src} alt={'Completed meal '} />
         </div >
 
         {/* Ingredient list */}
-        <div className={'col-12 col-lg-7 border border-primary py-3'} >
+        <div className={'col-12 col-lg-5 border border-primary py-3'} >
           <div >
             <h6 className={'fw-bold'}>Ingredients</h6 >
             <span >{this.props.servings}</span>

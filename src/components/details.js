@@ -8,7 +8,7 @@ class Details extends Component {
 
   render() {
     return (
-        <div className={'d-flex flex-column justify-content-evenly container p-3 h-100 w-100 m-0'}>
+        <div className={'d-flex flex-column justify-content-evenly container p-4 pb-5 h-100 w-100 m-0'}>
           {/* Header Layer */}
           <Header />
           {/* Ingredients Layer */}
