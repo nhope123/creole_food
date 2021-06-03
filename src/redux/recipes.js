@@ -53,7 +53,7 @@ export const recipes = [
     ],
     src: pelau,
     notes: 'Pelau could also be baked in an oven. Cover pot with tin foil and bake at 350°F for 30-35 minutes. Chopped carrots could also be added to pelau.',
-    servingSize: 'Serves 8-10',
+    servingSize: 'Serves 8',
   },
   {
     title: 'CURRIED GOAT',

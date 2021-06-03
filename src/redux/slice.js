@@ -6,10 +6,13 @@ import {
         uniqueRecipes,
         deleteFromLocal,
         deleteRecipe,
-        addRecipe
+        addRecipe, sample
       } from './sliceHelpers';
 
+localStorage.setItem('recipe',JSON.stringify(sample));
 const recipeData = (getLocal())? uniqueRecipes( getLocal(), recipes): recipes;
+
+
 
 const initialState = {
   recipe: recipeData,
@@ -53,9 +56,10 @@ const recipeSlice = createSlice({
     updateRecipe:{
       reducer: (state, action) =>{
         addRecipe(action.payload)
-        state.recipe = uniqueRecipes( getLocal(), recipes)
-        state.recipe_list =  getRecipeTitles(recipeData)
-        state.detail = recipeData[0]
+        const data = uniqueRecipes( getLocal(), recipes)
+        state.recipe = data
+        state.recipe_list =  getRecipeTitles(data)
+        state.detail = data[0]
       },
       prepare: (value) =>{
         return {payload: value}

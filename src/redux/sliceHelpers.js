@@ -1,5 +1,5 @@
-const sample = [{
-        name: 'DELAU',
+export const sample = [{
+        title: 'DELAU',
         ingredients: [
           '3 lbs. chicken pieces, skinned',
           '1 tsp. salt',
@@ -32,7 +32,7 @@ const sample = [{
         ],
         src: '/static/media/pelau.69cba4f4.webp',
         notes: 'Pelau could also be baked in an oven. Cover pot with tin foil and bake at 350°F for 30-35 minutes. Chopped carrots could also be added to pelau.',
-        servingSize: 'Serves 8-10'
+        servingSize: 'Serves 10'
       },]
 
 /*
@@ -52,12 +52,7 @@ export const getRecipeTitles = array =>{
   return recipe list
 */
 export const getLocal = ()=>{
-  if(localStorage.recipe){
-    return JSON.parse(localStorage.getItem('recipe'))
-  }else{
-    localStorage.setItem('recipe',JSON.stringify(''));
-    return ''
-  }
+  return (localStorage.recipe)? JSON.parse(localStorage.getItem('recipe')): null;
 }
 
 /*
@@ -103,9 +98,9 @@ export const deleteRecipe = (array,title) =>{
 export const addRecipe = (recipe) =>{
   let localValue;
   if(getLocal()){
-    localValue = getLocal().unshift(recipe)
-    localStorage.setItem('recipe',localValue)
+    localValue = uniqueRecipes([recipe],getLocal())
+    localStorage.setItem('recipe',JSON.stringify(localValue))
   }else{
-    localStorage.setItem('recipe',JSON.stringify([{...recipe}]))
+    localStorage.setItem('recipe',JSON.stringify([recipe]))
   }
 }

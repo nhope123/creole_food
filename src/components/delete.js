@@ -23,6 +23,7 @@ class DeleteRecipe extends Component {
       rightButtonTitle: 'Confirm',
       leftCallback: this.props.closeDeleteModal,
       rightCallback: this.props.confirmDelete,
+      data: null,
 
     }
 

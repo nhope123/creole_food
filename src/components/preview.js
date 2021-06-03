@@ -9,6 +9,7 @@ import Direction from './directon'
 import OptionButtons from './options'
 import {unSetPreview} from '../redux/previewSlice'
 import {updateRecipe} from '../redux/slice'
+import {closeCreateRecipe} from '../redux/formSlice'
 
 class RecipePreview extends Component {
   static propTypes = {
@@ -16,16 +17,21 @@ class RecipePreview extends Component {
     data: PropTypes.object,
     unSetPreview: PropTypes.func,
     updateRecipe: PropTypes.func,
+    closeCreateRecipe: PropTypes.func,
   }
 
   render() {
 
-    console.log(`data: ${this.props.data}`);
+    //console.log(`data: ${JSON.stringify([this.props.data])}`);
     const buttons = {
       leftButtonTitle: 'Edit',
       rightButtonTitle: 'Confirm',
       leftCallback: this.props.unSetPreview,
-      leftCallback: this.props.updateRecipe,
+      rightCallback: [
+                      this.props.updateRecipe,
+                      this.props.unSetPreview,
+                      this.props.closeCreateRecipe
+                    ],
       data: this.props.data,
 
     }
@@ -70,6 +76,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     unSetPreview,
     updateRecipe,
+    closeCreateRecipe,
   }, dispatch);
 }
 

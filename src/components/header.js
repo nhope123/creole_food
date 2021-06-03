@@ -8,11 +8,13 @@ import deletePic from './../assets/trash_bin2.png'
 import DeleteRecipe from './delete'
 
 import {openDeleteModal} from '../redux/slice'
+import {openEditRecipe} from '../redux/formSlice'
 
 class Header extends Component {
   static propTypes = {
-    title: PropTypes.string,
+    data: PropTypes.object,
     openDeleteModal: PropTypes.func,
+    openEditRecipe: PropTypes.func,
   }
 
   render() {
@@ -20,11 +22,12 @@ class Header extends Component {
       <div className={'row'}>
         {/* Label */}
         <div className={'col-9 col-sm-10'}>
-          <h3 className={'text-center'} >{this.props.title}</h3>
+          <h3 className={'text-center'} >{this.props.data.title}</h3>
         </div >
         {/* Eidt buttons */}
         <div className={'col-3 col-sm-2 d-flex flex-row'} >
-          <button type={'button'} className={'btn rounded-circle p-2 '} >
+          <button type={'button'} className={'btn rounded-circle p-2 '} onClick={()=>{
+            this.props.openEditRecipe(this.props.data)}} >
             <img className={'detail-icon'} src={edit} alt={'Edit button'} title={'Edit Recipe'}/>
           </button >
           <button type={'button'} className={'btn rounded-circle p-2'} onClick={this.props.openDeleteModal} >
@@ -40,12 +43,13 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  title: state.recipe.detail.title
+  data: state.recipe.detail
 })
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     openDeleteModal,
+    openEditRecipe,
   }, dispatch);
 }
 

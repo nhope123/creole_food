@@ -13,12 +13,14 @@ class SideMenu extends Component{
 
     return(
       <div className={`${this.props.main} position-relative`}>
-        <h5 id={'sm-title'} className={`d-block w-100 h-100 text-white text-center py-2 ${this.props.titleclass}`} data-bs-toggle="dropdown" aria-expanded="false" >{'Recipe'}</h5>
+        <h5 id={'sm-title'} className={`d-block w-100 h-100 text-white text-center py-2 ${this.props.titleclass}`}
+            data-bs-toggle="dropdown" aria-expanded="false" >{'Recipe'}</h5>
         <ul className={this.props.listclass} aria-labelledby={'sm-title'}>
           {
             this.props.list.map((item,index)=>{
               return(
-                <li className={this.props.itemclass} key={index} tabIndex={'0'} onClick={()=> this.props.callback(item)}>{item}</li>
+                <li className={this.props.itemclass} key={index} tabIndex={'0'}
+                title={`${item} Recipe`} onClick={()=> this.props.callback(item)}>{item}</li>
               )
             })
           }

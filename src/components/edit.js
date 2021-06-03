@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import RecipePreview from './preview'
 
-import {inputChange, closeCreateRecipe} from '../redux/formSlice'
+import {inputChange, closeCreateRecipe, openEditRecipe} from '../redux/formSlice'
 import {setPreview} from '../redux/previewSlice'
 
 const placeholders = [
@@ -91,9 +91,9 @@ class EditRecipe extends Component {
                 </div >
                 <div className={'d-block pb-2'} >
                   <label className={'d-block'} htmlFor={'image'} title={formLabels[4]} >{'Image Source'}</label >
-                  <input className={'d-block w-100'} type={'url'} id={'image'} name={'image'} tabIndex={'0'}
-                         placeholder={placeholders[3]} value={this.props.image}
-                         onChange={(event)=>{this.props.inputChange(event,'image')}} />
+                  <input className={'d-block w-100'} type={'text'} id={'image'} name={'image'} tabIndex={'0'}
+                         placeholder={placeholders[3]} value={this.props.src}
+                         onChange={(event)=>{this.props.inputChange(event,'src')}} />
                 </div >
                 <div className={'d-block pb-2'} >
                   <label className={'d-block'} htmlFor={'notes'} title={formLabels[5]} >{'Notes'}</label >
@@ -132,7 +132,7 @@ const mapStateToProps = (state) => ({
   servingSize: state.form.servingSize,
   ingredients: state.form.ingredients,
   directions: state.form.directions,
-  image: state.form.image,
+  src: state.form.src,
   notes: state.form.notes,
 })
 
@@ -141,6 +141,7 @@ const mapDispatchToProps = (dispatch) => {
     closeCreateRecipe,
     inputChange,
     setPreview,
+    openEditRecipe,
   }, dispatch);
 }
 
