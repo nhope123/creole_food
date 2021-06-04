@@ -2,12 +2,14 @@
   "name": "creole_food",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nhope123.github.io/creole_food",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.0.1",
+    "gh-pages": "^3.2.0",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",
@@ -19,6 +21,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -33,7 +37,7 @@
   "browserslist": {
     "production": [
       ">0.2%",
-      "not dead",
+      "not ie <=11",
       "not op_mini all"
     ],
     "development": [
