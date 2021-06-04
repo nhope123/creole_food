@@ -1,4 +1,4 @@
-import {createSlice, current} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 import {recipes} from './recipes';
 import {
         getRecipeTitles,
@@ -6,10 +6,10 @@ import {
         uniqueRecipes,
         deleteFromLocal,
         deleteRecipe,
-        addRecipe, sample
+        addRecipe, 
       } from './sliceHelpers';
 
-localStorage.setItem('recipe',JSON.stringify(sample));
+
 const recipeData = (getLocal())? uniqueRecipes( getLocal(), recipes): recipes;
 
 

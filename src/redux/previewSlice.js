@@ -1,8 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-
-const initialState = {
-  activePreview: false,
-  data: {
+/*data: {
       title: 'PELAU',
       ingredients: [
         '3 lbs. chicken pieces, skinned',
@@ -16,7 +13,19 @@ const initialState = {
       src: '/static/media/pelau.69cba4f4.webp',
       notes: '',
       servingSize: 'Serves 8'
-    }
+    }*/
+const dataValue = {
+    title: '1',
+    ingredients: [1],
+    directions: [1],
+    src: '1',
+    notes: '1',
+    servingSize: '1'
+  }
+
+const initialState = {
+  activePreview: false,
+  data: dataValue,
 };
 
 const previewSlice = createSlice({
@@ -26,6 +35,7 @@ const previewSlice = createSlice({
     setPreview: {
       reducer: (state, action) =>{
         state.activePreview = true
+        //state.data = initialState.data
         state.data = action.payload
       },
       prepare: (value) =>{
@@ -34,10 +44,14 @@ const previewSlice = createSlice({
     },
     unSetPreview: (state) =>{
       state.activePreview = false
-      state.data = ''
+      state.data = dataValue
+    },
+    closePreview: (state) =>{
+
+      state.activePreview = false
     }
   }
 });
 
-export const {setPreview, unSetPreview} = previewSlice.actions;
+export const {setPreview, unSetPreview,closePreview} = previewSlice.actions;
 export default previewSlice.reducer;

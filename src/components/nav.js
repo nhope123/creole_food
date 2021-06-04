@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import EditRecipe from './edit'
 import {openCreateRecipe} from '../redux/formSlice'
 import logo from './../assets/logo128.webp'
 import addRecipe from './../assets/file-add.png'
@@ -35,10 +34,6 @@ class Navbar extends Component {
     )
   }
 }
-
-const mapStateToProps = (state) => ({
-
-})
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({

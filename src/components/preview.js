@@ -7,17 +7,19 @@ import ReactModal from 'react-modal'
 import Ingredient from './ingredient'
 import Direction from './directon'
 import OptionButtons from './options'
-import {unSetPreview} from '../redux/previewSlice'
+import {unSetPreview, closePreview,} from '../redux/previewSlice'
 import {updateRecipe} from '../redux/slice'
-import {closeCreateRecipe} from '../redux/formSlice'
+import {closeCreateRecipe, openEditRecipe} from '../redux/formSlice'
 
 class RecipePreview extends Component {
   static propTypes = {
     activePreview: PropTypes.bool,
     data: PropTypes.object,
     unSetPreview: PropTypes.func,
+    closePreview: PropTypes.func,
     updateRecipe: PropTypes.func,
     closeCreateRecipe: PropTypes.func,
+    openEditRecipe: PropTypes.func,
   }
 
   render() {
@@ -26,7 +28,7 @@ class RecipePreview extends Component {
     const buttons = {
       leftButtonTitle: 'Edit',
       rightButtonTitle: 'Confirm',
-      leftCallback: this.props.unSetPreview,
+      leftCallback: [this.props.closePreview, this.props.openEditRecipe],
       rightCallback: [
                       this.props.updateRecipe,
                       this.props.unSetPreview,
@@ -38,26 +40,28 @@ class RecipePreview extends Component {
     return (
       <ReactModal
                     isOpen={this.props.activePreview}
-                    onRequestClose={ this.props.unSetPreview}
+                    onRequestClose={ this.props.closePreview}
                     contentLabel={`${ this.props.title} Recipe Preview`}
                     id={'edit-recipe'}
-                    className={'container d-flex flex-column justify-content-center align-items-center bg-warning min-vh-100 min-vw-100 overflow-auto'}
+                    overlayClassName={'override d-flex justify-content-center align-items-center '}
+                    className={' position-absolute bg-white '}
       >
-        <div >
+        <div className={'container  px-3  overflow-scroll'} >
           {/* Recipe title */}
-          <div >
+          <div className={'text-center p-3'}>
             <h2 >{this.props.data.title}</h2>
           </div >
           {/* Ingredients Layer */}
-          <div >
+          <div className={' pb-3'}>
             <Ingredient />
           </div>
           {/* Direction Layer */}
-          <div >
+          <div className={' pb-3'}>
             <Direction />
           </div >
-          <OptionButtons {...buttons} />
-
+          <div className={' pb-4'} >
+            <OptionButtons {...buttons} />
+          </div >
         </div >
 
 
@@ -75,8 +79,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     unSetPreview,
+    closePreview,
     updateRecipe,
     closeCreateRecipe,
+    openEditRecipe,
   }, dispatch);
 }
 

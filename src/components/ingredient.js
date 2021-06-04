@@ -14,12 +14,12 @@ class Ingredient extends Component {
       <div id={'ingredient'} className={'d-flex flex-sm-row-reverse row py-3'}>
 
         {/* Image */}
-        <div className={'d-flex flex-row align-items-center col-12 col-lg-7 border border-primary p-2'} >
+        <div className={'d-flex flex-row align-items-center col-12 col-lg-7  p-2'} >
           <img id={'meal'} src={this.props.src} alt={'Completed meal '} />
         </div >
 
         {/* Ingredient list */}
-        <div className={'col-12 col-lg-5 border border-primary py-3'} >
+        <div className={'col-12 col-lg-5 py-3'} >
           <div >
             <h6 className={'fw-bold'}>Ingredients</h6 >
             <span >{this.props.servings}</span>
@@ -38,14 +38,14 @@ class Ingredient extends Component {
 
 const mapStateToProps = (state) =>{
   return (state.preview.activePreview)?({
-    data: state.preview.data.ingredients,
-    servings: state.preview.data.servingSize,
-    src: state.preview.data.src,
+      data: state.preview.data.ingredients,
+      servings: state.preview.data.servingSize,
+      src: state.preview.data.src,
   }) :
    ({
-  data: state.recipe.detail.ingredients,
-  servings: state.recipe.detail.servingSize,
-  src: state.recipe.detail.src,
+      data: state.recipe.detail.ingredients,
+      servings: state.recipe.detail.servingSize,
+      src: state.recipe.detail.src,
   })
 }
 

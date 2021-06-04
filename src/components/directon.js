@@ -13,7 +13,7 @@ class Direction extends Component {
       <div id={'direction'} className={'row'}>
 
         {/* Directions */}
-        <div className={'col-12 border border-primary  py-3'} >
+        <div className={'col-12 py-3'} >
           <h6 className={'fw-bold'}>Direction</h6 >
             <dl >
               {this.props.data.map((item, index)=>{

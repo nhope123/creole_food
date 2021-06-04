@@ -8,7 +8,7 @@ import {inputChange, closeCreateRecipe, openEditRecipe} from '../redux/formSlice
 import {setPreview} from '../redux/previewSlice'
 
 const placeholders = [
-  'APPLE PIE','1 bread;2 slices cheese',
+  'APPLE PIE','1 2/3 bread;2 1/2 slices cheese',
   'Slice bread; Add cheese to bread slices', 'http://image.location.file.jpg',
   'Use any type bread. Add cheese as desire',
 ];
@@ -37,7 +37,7 @@ class EditRecipe extends Component {
         <div id={'edit-modal-bg'}
             className={'container-fluid d-flex flex-column justify-content-evenly align-items-center  bg-white py-4 min-vw-100 min-vh-100'}>
           {/* Recipe editing title */}
-          <div id={'form-header'} className={'py-2 px-4 bg-white'} >
+          <div id={'form-header'} className={'py-2 px-4 m-5  bg-white'} >
             <h2 className={'m-0'} >
                 {`${(this.props.editModal)? this.props.title: 'Input'} Recipe `}
             </h2>

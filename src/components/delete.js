@@ -36,7 +36,7 @@ class DeleteRecipe extends Component {
                   className={'d-flex flex-column justify-content-center align-items-center min-vw-100 min-vh-100 '}
       >
         <div id={'dm-content'} className={' container  d-flex flex-column justify-content-between align-items-center p-2 border rounded'}>
-          <div className={'text-center'} >{'Are you sure you want to delete this recipe?'}</div>
+          <div className={'text-center pt-4'} >{'Are you sure you want to delete this recipe?'}</div>
           {/* Choice to cancel or delete the recipe */}
           <OptionButtons {...buttons}/>
         </div >
