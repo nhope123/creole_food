@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {recipes} from './recipes';
 import {
         getRecipeTitles,
@@ -6,13 +6,11 @@ import {
         uniqueRecipes,
         deleteFromLocal,
         deleteRecipe,
-        addRecipe, 
+        addRecipe,
       } from './sliceHelpers';
-
+import {pdfProcessing} from './pdf-load'
 
 const recipeData = (getLocal())? uniqueRecipes( getLocal(), recipes): recipes;
-
-
 
 const initialState = {
   recipe: recipeData,
@@ -21,7 +19,13 @@ const initialState = {
   deleteModal: false,
 };
 
-
+export const downloadPDF = createAsyncThunk(
+  'recipe/download',
+  async (arg,thunkApi) =>{
+    let response = await pdfProcessing(arg);
+    return response
+  }
+)
 
 const recipeSlice = createSlice({
   name: 'recipe',
@@ -66,6 +70,15 @@ const recipeSlice = createSlice({
       }
     }
 
+  },
+  extraReducers:{
+    [downloadPDF.fulfilled]: (state,action)=>{
+      console.log(action.payload);
+    },
+    [downloadPDF.rejected]: (state,action)=>{
+      alert(`Error creating Pdf file of ${state.detail.title} recipe`)
+      console.log(action.payload);
+    }
   },
 })
 

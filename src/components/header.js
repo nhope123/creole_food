@@ -8,7 +8,7 @@ import deletePic from './../assets/trash_bin2.png'
 import pdfPic from './../assets/pdf_download.png'
 import DeleteRecipe from './delete'
 
-import {openDeleteModal} from '../redux/slice'
+import {openDeleteModal, downloadPDF} from '../redux/slice'
 import {openEditRecipe} from '../redux/formSlice'
 
 class Header extends Component {
@@ -16,6 +16,7 @@ class Header extends Component {
     data: PropTypes.object,
     openDeleteModal: PropTypes.func,
     openEditRecipe: PropTypes.func,
+    downloadPDF: PropTypes.func,
   }
 
   render() {
@@ -29,8 +30,8 @@ class Header extends Component {
         <div id={'icon-buttons'} className={'col-1 col-sm-2 d-flex flex-row flex-wrap justify-content-evenly'} >
 
 
-          <button type={'button'} className={'btn rounded-circle p-1 '} disabled onClick={()=>{
-            this.props.openEditRecipe(this.props.data)}} >
+          <button type={'button'} className={'btn rounded-circle p-1 '} onClick={()=>{
+            this.props.downloadPDF(this.props.data)}} >
             <img className={'icon'} src={pdfPic} alt={'Pdf button'} title={'Download Pdf Version'}/>
           </button >
 
@@ -59,6 +60,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     openDeleteModal,
     openEditRecipe,
+    downloadPDF,
   }, dispatch);
 }
 

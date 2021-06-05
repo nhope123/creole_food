@@ -10,6 +10,7 @@ class Ingredient extends Component {
   }
 
   render() {
+    console.log(this.props.src);
     return(
       <div id={'ingredient'} className={'d-flex flex-sm-row-reverse row py-3'}>
 
