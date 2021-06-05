@@ -68,7 +68,7 @@ This software uses the following open source packages:
 - [Redux-toolkit](https://redux-toolkit.js.org/) - The official toolset for efficient Redux development
 - [Node.js](https://nodejs.org/) - An asynchronous event-driven JavaScript runtime
 - [Bootstrap](https://getbootstrap.com/) - CSS framework for managing UI layout.- 
-- [React Moadl](https://reactcommunity.org/react-modal/) - Accessible modal dialog component for React.JS
+- [React Modal](https://reactcommunity.org/react-modal/) - Accessible modal dialog component for React.JS
 - [pdfMake](https://pdfmake.github.io/docs/0.1/) - PDF document generation library for server-side and client-side.
 - [icon-icons](https://icon-icons.com/) - Free icons for personal and commercial use
 
