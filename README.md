@@ -20,31 +20,28 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](./src/assets/screenshots/mobile.webp)
+![screenshot](./src/assets/screenshots/mobile.png) ![screenshot](./src/assets/screenshots/desktop.png)
 
 ## Key Features
 
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-  - While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown  
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-  - Write distraction free.
-* Cross platform
-  - Windows, macOS and Linux ready.
+- Add recipes to the the default recipe collection.
+	+ Required input:
+		* Title - The title of the recipe.
+		* Serving - The number ofpossible servings.
+		* Ingredients - List of all ingredients.
+		* Direction - List of steps for completion.
+	+ Optional input: 
+		* Image - Url of image location.
+		* Note - Additional notes accompanying the recipe.
+- Edit existing recipes from the collection.
+- Remove existing recipes from the collection.
+- Preview edited or created recipes before adding to the collection.
+- Download pdf version of a recipe from the collection.
 
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+1. Run [online live](https://nhope123.github.io/creole_food/) version.
+2. Clone and run this application. You'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
 # Clone this repository
