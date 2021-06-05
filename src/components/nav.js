@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import {openCreateRecipe} from '../redux/formSlice'
-import logo from './../assets/logo128.webp'
-import addRecipe from './../assets/file-add.png'
+import logo from './../assets/icons/logo128.webp'
+import addRecipe from './../assets/icons/file-add.webp'
 
 
 

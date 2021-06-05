@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import edit from './../assets/editdocument1.png'
-import deletePic from './../assets/trash_bin2.png'
-import pdfPic from './../assets/pdf_download.png'
+import edit from './../assets/icons/editdocument.webp'
+import deletePic from './../assets/icons/trash_bin.webp'
+import pdfPic from './../assets/icons/pdf_download.webp'
 import DeleteRecipe from './delete'
 
 import {openDeleteModal, downloadPDF} from '../redux/slice'

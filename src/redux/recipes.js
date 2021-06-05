@@ -1,9 +1,9 @@
-import pelau from './../assets/pelau.webp';
-import curry_goat from './../assets/curry-goat.webp';
-import curry_chicken from './../assets/curry-chicken.webp';
-import stew_chicken from './../assets/stew-chicken.webp';
-import bbq_chicken from './../assets/bbq-chicken.webp';
-import shepard_pie from './../assets/shepard-pie.webp';
+import pelau from './../assets/recipes/pelau.webp';
+import curry_goat from './../assets/recipes/curry-goat.webp';
+import curry_chicken from './../assets/recipes/curry-chicken.webp';
+import stew_chicken from './../assets/recipes/stew-chicken.webp';
+import bbq_chicken from './../assets/recipes/bbq-chicken.webp';
+import shepard_pie from './../assets/recipes/shepard-pie.webp';
 
 /* Template
   {

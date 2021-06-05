@@ -21,7 +21,7 @@ export const pdfProcessing = recipe =>{
   });
 
   const direction = [];
-  recipe.directions.map((item,i) => {
+  recipe.directions.forEach((item,i) => {
     direction.push({text:`Step ${i+1}`,style: 'steps'})
     direction.push({text:item,style: 'context'})
   });
