@@ -1,16 +1,20 @@
 {
-  "main.css": "static/css/main.6e9776f8.css",
-  "main.css.map": "static/css/main.6e9776f8.css.map",
-  "main.js": "static/js/main.4534cfea.js",
-  "main.js.map": "static/js/main.4534cfea.js.map",
-  "static/js/0.62035060.chunk.js": "static/js/0.62035060.chunk.js",
-  "static/js/0.62035060.chunk.js.map": "static/js/0.62035060.chunk.js.map",
+  "main.css": "static/css/main.06093443.css",
+  "main.css.map": "static/css/main.06093443.css.map",
+  "main.js": "static/js/main.0644c125.js",
+  "main.js.map": "static/js/main.0644c125.js.map",
+  "static/js/0.5130dec4.chunk.js": "static/js/0.5130dec4.chunk.js",
+  "static/js/0.5130dec4.chunk.js.map": "static/js/0.5130dec4.chunk.js.map",
   "static/media/bbq-chicken.webp": "static/media/bbq-chicken.015184d4.webp",
   "static/media/curry-chicken.webp": "static/media/curry-chicken.da5fd170.webp",
   "static/media/curry-goat.webp": "static/media/curry-goat.ddf9b981.webp",
+  "static/media/editdocument.webp": "static/media/editdocument.fe0b16c8.webp",
+  "static/media/file-add.webp": "static/media/file-add.0367dbcc.webp",
   "static/media/food-bg.jpg": "static/media/food-bg.fd1263d1.jpg",
   "static/media/logo128.webp": "static/media/logo128.10eaa1eb.webp",
+  "static/media/pdf_download.webp": "static/media/pdf_download.2d1ef855.webp",
   "static/media/pelau.webp": "static/media/pelau.69cba4f4.webp",
   "static/media/shepard-pie.webp": "static/media/shepard-pie.bf3a8068.webp",
-  "static/media/stew-chicken.webp": "static/media/stew-chicken.12d0316a.webp"
+  "static/media/stew-chicken.webp": "static/media/stew-chicken.12d0316a.webp",
+  "static/media/trash_bin.webp": "static/media/trash_bin.ed88f9b7.webp"
 }
