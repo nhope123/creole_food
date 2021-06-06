@@ -4,18 +4,41 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const path = require('path');
 
-export const pdfProcessing = recipe =>{
-  /* Bug : Url issues
-    let url = (recipe.src.includes('/static/media/'))?
-      path.resolve(__dirname,`${recipe.src.split('/')[3].split('.')[0]}${path.extname(recipe.src)}`):
-      //path.resolve(__dirname,`/../assets/${recipe.src.split('/')[3].split('.')[0]}${path.extname(recipe.src)}`):
-      recipe.src
+const getBase64ImageFromURL = (url) => {
+  return new Promise((resolve, reject) => {
+    var img = new Image();
+    img.setAttribute("crossOrigin", "anonymous");
 
-    console.log(url);
-    console.log(recipe.src.split('/')[3].split('.')[0]);
-    console.log("Current directory:",__dirname );
+    img.onload = () => {
+      var canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
 
-  */
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+
+      var dataURL = canvas.toDataURL("image/png");
+
+      resolve(dataURL);
+    };
+
+    img.onerror = error => {
+      reject(error);
+    };
+
+    img.src = url;
+  });
+}
+
+
+export const pdfProcessing = async (recipe) =>{
+    let image = '';
+    getBase64ImageFromURL(recipe.src).then(value => {
+      image = {image: value, width: 250,}
+    }).catch(err => {
+      alert('Error adding image - Pdf will not contain recipe image!')
+    });
+
   const ingredients =  recipe.ingredients.map((item) => {
     return ({ text: item, listType: 'none' });
   });
@@ -55,10 +78,7 @@ export const pdfProcessing = recipe =>{
           {
             ul: [...ingredients],
           },
-          {
-            /*image: url,
-            width: 250,*/
-          },
+          image,
         ]
       },
       {text: 'Directions', style: 'subTitle'},
@@ -99,5 +119,5 @@ export const pdfProcessing = recipe =>{
   }
 
   // need Promise
-  return pdfMake.createPdf(pdfDefination).download() ;
+  return pdfMake.createPdf(pdfDefination).download(`${recipe.title}_recipe.pdf`) ;
 }

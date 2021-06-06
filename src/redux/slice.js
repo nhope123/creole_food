@@ -73,11 +73,11 @@ const recipeSlice = createSlice({
   },
   extraReducers:{
     [downloadPDF.fulfilled]: (state,action)=>{
-      console.log(action.payload);
+      //console.log(action.payload);
     },
     [downloadPDF.rejected]: (state,action)=>{
       alert(`Error creating Pdf file of ${state.detail.title} recipe`)
-      console.log(action.payload);
+      //console.log(action.payload);
     }
   },
 })
