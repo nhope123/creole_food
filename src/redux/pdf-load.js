@@ -53,7 +53,7 @@ export const pdfProcessing = async (recipe) =>{
 
   // Convert url to base 64 image or throw and alert message
   let image = '';
-  getBase64ImageFromURL(recipe.src).then(value => {
+  await getBase64ImageFromURL(recipe.src).then(value => {
     image = {image: value, width: 250,}
   }).catch(err => {
     alert('Error adding image - Pdf will not contain recipe image!')
