@@ -1,27 +1,32 @@
 
-/*
-  getRecipeTitles take as parameter an array of recipes and return a list of recipes titles
-  array: list of recipe objects
-  return: list of string titles
+/**
+* @function getRecipeTitles
+* @description -Take as parameter an array of recipes and return a list of recipes titles
+* @param {array}  array: list of recipe objects
+* @return {array} List of string titles
 */
-export const getRecipeTitles = array =>{
-  return array.map(item =>{
+export const getRecipeTitles = recipes =>{
+  return recipes.map(item =>{
     return item.title
   });
 }
 
-/*
-  getLocal takes no parameters, checks Local storage for recipes, return recipes
-  if found, otherwise create default recipe storage
-  return recipe list
+/**
+* @function getLocal
+* @description -Takes no parameters, checks Local storage for recipes, return recipes
+* if found, otherwise create default recipe storage
+* @return {array} recipe list
 */
 export const getLocal = ()=>{
   return (localStorage.recipe)? JSON.parse(localStorage.getItem('recipe')): null;
 }
 
-/*
-  uniqueRecipes takes two recipe list and return a list of recipes base on
-  unique titles
+/**
+* @function niqueRecipes
+* @description -Takes two recipe list and return a list of recipes base on unique titles.
+* @param {array} firstList - A list of recipes for comparison.
+* @param {array} secondList - A list of recipes for comparison.
+* @return {array} A list of unique recipes.
 */
 export const uniqueRecipes = (firstList, secondList) =>{
    let unique = [...firstList];
@@ -36,10 +41,10 @@ export const uniqueRecipes = (firstList, secondList) =>{
    return unique;
 }
 
-/*
-  deleteFromLocal takes as parameter a recipe title, check localStorage for
-  existence and delete the recipe
-  No return value
+/**
+* @function deleteFromLocal
+* @description - Takes as parameter a recipe title, check localStorage for existence and delete the recipe.
+* @param {string} title - The title of the recipe to delete.
 */
 export const deleteFromLocal = (title) =>{
   if(getLocal()){
@@ -47,18 +52,22 @@ export const deleteFromLocal = (title) =>{
   }
 }
 
-/*
-  deleteRecipe takes as parameters an array and a recipe title, it remove
-  existing recipe of title and return the array.
-  array: An array of recipes
-  title: Recipe title
-  return: Filtered array of recipes
+/**
+* @function deleteRecipe
+* @deescription - This function deletes a recipe from a list of recipes.
+* @param {array} recipeList - A list of recipes
+* @param {string} title - A string of the recipe title to delete
+* @return {array} A list of recipes excluding the titled recipe.
 */
-export const deleteRecipe = (array,title) =>{
-  return array.filter((item) => {return (item.title !== title)})
+export const deleteRecipe = (recipeList,title) =>{
+  return recipeList.filter((item) => {return (item.title !== title)})
 }
 
-
+/**
+* @function addRecipe
+* @description This fuction adds a recipe to the local storage.
+* @param {object} recipe - The recipe to be added to the local storage.
+*/
 export const addRecipe = (recipe) =>{
   let localValue;
   if(getLocal()){
