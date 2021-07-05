@@ -26,4 +26,7 @@ describe('deleteRecipe()', function () {
   test("Remove CURRIED GOAT from recipe list", () => {
     expect(deleteRecipe(recipes,'CURRIED GOAT')).not.toContain(recipes[1]);
   });
+  test("Remove CURRIED GOAT from recipe list", () => {
+    expect(deleteRecipe(recipes,'CURRIED CHICKEN')).not.toContain(recipes[2]);
+  });
 });
